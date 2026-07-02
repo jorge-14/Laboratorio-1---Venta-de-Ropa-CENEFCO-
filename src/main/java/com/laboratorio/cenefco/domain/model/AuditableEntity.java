@@ -49,3 +49,4 @@ public class AuditableEntity {
     }
 }
 
+//TABLA NUEVA
