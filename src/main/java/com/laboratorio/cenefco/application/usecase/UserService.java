@@ -25,6 +25,5 @@ public interface UserService {
     List<InformationUserResponseDto> getInformationUser();
     Boolean deletedUser(Long id);
     UpdateUserResponseDto updateUser(Long id, UpdateUserRequestDto updateUserRequestDto);
-
-
+    Boolean existUser(String email, String password);
 }

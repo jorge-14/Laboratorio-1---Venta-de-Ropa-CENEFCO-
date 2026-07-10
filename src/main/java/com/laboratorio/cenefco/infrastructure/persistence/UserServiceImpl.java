@@ -112,4 +112,10 @@ public class UserServiceImpl implements UserService {
 
         return new UpdateUserResponseDto(userModel);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Boolean existUser(String email, String password) {
+        return userRepository.existUser(email,password);
+    }
 }

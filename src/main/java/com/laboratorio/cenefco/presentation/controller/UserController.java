@@ -60,4 +60,13 @@ public class UserController {
         UpdateUserResponseDto updateUser = userService.updateUser(id, updateUserRequestDto);
         return ResponseEntity.ok(ResponseBody.ok("Usuario actualizado correctamente", updateUser));
     }
+
+    @PutMapping("/verification-user/{password}/{email}")
+    public ResponseEntity<ResponseBody<Boolean>> existUser(
+            @PathVariable String password,
+            @PathVariable String email) {
+
+        Boolean user = userService.existUser(email, password);
+        return ResponseEntity.ok(ResponseBody.ok("Verificación usuario", user));
+    }
 }

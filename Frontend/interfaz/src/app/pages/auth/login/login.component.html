@@ -1,0 +1,53 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <div class="logo-section">
+        <mat-icon class="logo-icon">storefront</mat-icon>
+        <h1>Usuario</h1>
+        <p>Inicia sesión en tu cuenta</p>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="correo@ejemplo.com"/>
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error>{{ getEmailError() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matInput formControlName="password" [type]="hidePassword() ? 'password' : 'text'"/>
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="hidePassword.set(!hidePassword())">
+            <mat-icon>
+              {{ hidePassword() ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+          <mat-error>{{ getPasswordError() }}</mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="full-width login-btn"
+          [disabled]="loginForm.invalid || isLoading()">
+
+          @if (isLoading()) {
+          <mat-spinner diameter="20"></mat-spinner>
+          } @else {
+          Iniciar Sesión
+          }
+
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+

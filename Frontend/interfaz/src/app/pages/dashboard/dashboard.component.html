@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="sidenav-header">
+      <mat-icon class="sidenav-logo">storefront</mat-icon>
+      <span>Venta Ropa</span>
+    </div>
+    <mat-nav-list>
+      @for (item of menuItems; track item.route) {
+      <a mat-list-item [routerLink]="item.route">
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="main-content">
+    <mat-toolbar color="primary">
+      <span>Dashboard</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="content-area">
+      <h2>Resumen general</h2>
+      <div class="stats-grid">
+        @for (stat of stats; track stat.label) {
+        <mat-card class="stat-card">
+          <mat-card-content>
+            <div class="stat-content">
+              <mat-icon [style.color]="stat.color">{{ stat.icon }}</mat-icon>
+                <div>
+                  <p class="stat-value">{{ stat.value }}</p>
+                  <p class="stat-label">{{ stat.label }}</p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
