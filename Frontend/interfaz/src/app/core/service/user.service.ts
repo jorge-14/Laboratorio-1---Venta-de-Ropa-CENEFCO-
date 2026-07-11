@@ -21,6 +21,10 @@ export class UserService {
     this.errorMessage.set('');
     return this.http.put<any>(`${this.apiUrl}/verification-user/${password}/${email}`, {});
   }
+
+  createUser(data: any) {
+    return this.http.post<any>(`${this.apiUrl}/create-user`, data);
+  }
 }
 
 

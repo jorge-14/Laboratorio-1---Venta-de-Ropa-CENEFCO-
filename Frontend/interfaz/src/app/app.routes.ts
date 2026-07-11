@@ -10,7 +10,14 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import('./pages/dashboard/dashboard.component')
-      .then(m => m.DashboardComponent)
+      .then(m => m.DashboardComponent),
+    children: [
+      {
+        path: 'users',
+        loadComponent: () => import('./pages/dashboard/user/user.component')
+          .then(m => m.UserComponent)
+      }
+    ]
   },
   { path: '**', redirectTo: 'login' }
 ];

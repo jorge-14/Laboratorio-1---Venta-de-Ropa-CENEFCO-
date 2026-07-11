@@ -28,26 +28,42 @@ import {UserService} from '../../../core/service/user.service';
 
 export class LoginComponent implements OnInit {
 
+  name = "VIENER"
+
   loginForm: FormGroup;
   hidePassword = signal(true);
   isLoading = signal(false);
   errorMessage = signal('');
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private userService: UserService,
-  ) {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private userService: UserService) {
+
+
+
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
+
+
+
   }
 
   ngOnInit() {
+
+
+
+
   }
 
   onSubmit() {
+    console.log("MI nombre es:", this.name)
+    console.log("MI FORMULARIO ES ", this.loginForm.value)
+
+
+
+
     if (this.loginForm.invalid) return;
 
     this.isLoading.set(true);
