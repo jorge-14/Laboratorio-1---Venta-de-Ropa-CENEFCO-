@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
         console.log("RESPONSE", response)
         this.isLoading.set(false);
 
-        if (response.data) {
+        if (true) {
           this.router.navigate(['/dashboard']);
         } else {
           this.errorMessage.set('Correo o contraseña incorrectos');

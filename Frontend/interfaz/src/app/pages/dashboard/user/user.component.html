@@ -7,4 +7,37 @@
       Nuevo Usuario
     </button>
   </div>
+  @if (isLoading()) {
+  <div class="loading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+  } @else {
+  <table mat-table [dataSource]="users()" class="users-table">
+    <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let user"> {{user.name}} {{user.surnamePaternal}}  {{user.surnameMaternal}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ciUser">
+    <th mat-header-cell *matHeaderCellDef> CI </th>
+    <td mat-cell *matCellDef="let user"> {{user.ci}}</td>
+    </ng-container>
+    <ng-container matColumnDef="userEmail">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> ACCIONE </th>
+    <td mat-cell *matCellDef="let user">
+    <button mat-icon-button color="primary" (click)="openEditDialog(user)">
+    <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="deleteUser(user)">
+    <mat-icon>delete</mat-icon>
+    </button>
+    </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  }
 </div>

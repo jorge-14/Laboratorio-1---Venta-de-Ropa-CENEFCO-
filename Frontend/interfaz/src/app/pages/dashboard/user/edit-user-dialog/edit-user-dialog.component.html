@@ -1,0 +1,42 @@
+<h2> Actualizar Usuario</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Apellido Paterno</mat-label>
+      <input matInput formControlName="surnamePaternal" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Apellido Materno</mat-label>
+      <input matInput formControlName="surnameMaternal" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CI</mat-label>
+      <input matInput formControlName="ci" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="email" type="email"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Usuario</mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input matInput formControlName="password" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button (click)="onSubmit()"> Actualizar </button>
+</mat-dialog-actions>

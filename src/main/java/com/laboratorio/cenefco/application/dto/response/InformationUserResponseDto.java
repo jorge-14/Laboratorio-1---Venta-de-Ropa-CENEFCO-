@@ -24,6 +24,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class InformationUserResponseDto {
 
+    private Long id;
     private String name;
     private String surnamePaternal;
     private String surnameMaternal;
@@ -36,6 +37,7 @@ public class InformationUserResponseDto {
     private Boolean deleted;
 
     public InformationUserResponseDto(User user) {
+        this.id = user.getId();
         this.name = user.getName();
         this.surnamePaternal = user.getSurnamePaternal();
         this.surnameMaternal = user.getSurnameMaternal();
